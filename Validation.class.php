@@ -454,12 +454,12 @@ class Validation{
         {   // Calcula os números para verificar se o CPF é verdadeiro
             for ($t = 9; $t < 11; $t++) {
                 for ($d = 0, $c = 0; $c < $t; $c++) {
-                    $d += $v{$c} * (($t + 1) - $c);
+                    $d += $v[$c] * (($t + 1) - $c);
                 }
                 
                 $d = ((10 * $d) % 11) % 10;
                 
-                if ($v{$c} != $d) {
+                if ($v[$c] != $d) {
                     throw new Exception("Invalid CPF");
                 }
             }
@@ -482,13 +482,13 @@ class Validation{
         } else {
             for ($t = 12; $t < 14; $t++) {
                 for ($d = 0, $p = $t - 7, $c = 0; $c < $t; $c++) {
-                    $d += $v{$c} * $p;
+                    $d += $v[$c] * $p;
                     $p   = ($p < 3) ? 9 : --$p;
                 }
 
                 $d = ((10 * $d) % 11) % 10;
 
-                if ($v{$c} != $d) {
+                if ($v[$c] != $d) {
                     throw new Exception("Invalid CNPJ");
                 }
             }

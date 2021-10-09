@@ -7,12 +7,12 @@ class ValidationTest extends PHPUnit\Framework\TestCase{
     public $obj;
 
 
-    protected function setUp() {
+    protected function setUp(): void {
         $this->obj = new Validation();
     }
 
 
-    protected function tearDown() {
+    protected function tearDown(): void {
         unset($this->obj);
     }
 
@@ -1473,7 +1473,7 @@ class ValidationTest extends PHPUnit\Framework\TestCase{
             $this->assertTrue( true , "Validating range. It is a invalid range, but test will catch its fail." );
         }
         try{
-            $this->obj->range("1", a, 1.1);
+            $this->obj->range("1", "a", 1.1);
             $this->fail( "" );
         } catch(PHPUnit_Framework_AssertionFailedError $e){
             $this->fail( "Validating range. Invalid range" );

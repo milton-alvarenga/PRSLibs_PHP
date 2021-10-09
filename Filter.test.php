@@ -7,12 +7,12 @@ class FilterTest extends PHPUnit\Framework\TestCase{
     public $obj;
 
 
-    protected function setUp() {
+    protected function setUp(): void {
         $this->obj = new Filter();
     }
 
 
-    protected function tearDown() {
+    protected function tearDown(): void {
         unset($this->obj);
     }
 
